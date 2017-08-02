@@ -1,6 +1,9 @@
 package notebook;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -17,6 +20,7 @@ import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
+
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
 import javax.swing.text.Document;
@@ -30,6 +34,12 @@ public class MainInterface extends javax.swing.JFrame {
     public MainInterface() {
                 
                 initComponents();
+                GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+                 String[] fontNames = ge.getAvailableFontFamilyNames();
+                 for(int i=0;i<fontNames.length;i++){
+                        jComboBox3.addItem(fontNames[i]);
+                 }
+    jTextArea1.setEditable(false);
     undoManager = new UndoManager();
     Document doc = jTextPane1.getDocument();
     doc.addUndoableEditListener(new UndoableEditListener() {
@@ -51,11 +61,7 @@ public class MainInterface extends javax.swing.JFrame {
             if (undoManager.canUndo()) {
                 undoManager.undo();
             }
-        } catch (CannotUndoException exp) {
-            exp.printStackTrace();
-        }
-        }
-    });
+        } catch (CannotUndoException exp) {}}});
     am.put("Redo", new AbstractAction() {
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -63,14 +69,9 @@ public class MainInterface extends javax.swing.JFrame {
             if (undoManager.canRedo()) {
                 undoManager.redo();
             }
-        } catch (CannotUndoException exp) {
-            exp.printStackTrace();
-        }
-        }
-    });
-    }
+        } catch (CannotUndoException exp) {}}});}
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jDialog1 = new javax.swing.JDialog();
@@ -84,6 +85,26 @@ public class MainInterface extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jDialog3 = new javax.swing.JDialog();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jFrame1 = new javax.swing.JFrame();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jButton6 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jFrame2 = new javax.swing.JFrame();
+        jLabel12 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -106,7 +127,8 @@ public class MainInterface extends javax.swing.JFrame {
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem14 = new javax.swing.JMenuItem();
-        jMenuItem15 = new javax.swing.JMenuItem();
+        jMenuItem16 = new javax.swing.JMenuItem();
+        jMenuItem22 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem20 = new javax.swing.JMenuItem();
         jMenuItem21 = new javax.swing.JMenuItem();
@@ -214,6 +236,172 @@ public class MainInterface extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
+        jLabel3.setText("Version Details");
+
+        jLabel4.setText("Version number:");
+
+        jLabel5.setText("Version 1.0");
+
+        jLabel6.setText("Year:");
+
+        jLabel7.setText("2017");
+
+        jButton5.setText("Close");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jDialog3Layout = new javax.swing.GroupLayout(jDialog3.getContentPane());
+        jDialog3.getContentPane().setLayout(jDialog3Layout);
+        jDialog3Layout.setHorizontalGroup(
+            jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog3Layout.createSequentialGroup()
+                .addGroup(jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialog3Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDialog3Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(42, 42, 42)
+                        .addGroup(jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(68, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(48, 48, 48))
+        );
+        jDialog3Layout.setVerticalGroup(
+            jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog3Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
+                .addGroup(jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
+                .addComponent(jButton5)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9", "10", "11", "12", "13", "14", "18", "24", "36", "48", "64", "72", "96", "144", " " }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Regular", "Italic", "Bold", "Bold Italic" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("Ok");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Size");
+
+        jLabel10.setText("Style");
+
+        jLabel11.setText("Family");
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrame1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton6))
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(36, 36, 36)
+                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(105, Short.MAX_VALUE))
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(jButton6))
+        );
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        jLabel12.setText("             HELP");
+        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Shortcuts:-\nnew file:-cntr+n\nopen file:-cntr+o\nSave file:-cntr+s\nSave file to new destination:-cntr+b\nPrint file:-cntr+p\nUndo:-cntr+z\nRedo:-cntr+y\nCut:-cntr+x\nCopy:-cntr+c\nPaste:-cntr+v\nDelete:-cntr+d\n\n");
+        jScrollPane2.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
+        jFrame2.getContentPane().setLayout(jFrame2Layout);
+        jFrame2Layout.setHorizontalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame2Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(70, Short.MAX_VALUE))
+            .addComponent(jScrollPane2)
+        );
+        jFrame2Layout.setVerticalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTextPane1.setBackground(new java.awt.Color(0, 0, 0));
@@ -289,6 +477,11 @@ public class MainInterface extends javax.swing.JFrame {
 
         jMenuItem19.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem19.setText("Redo");
+        jMenuItem19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem19ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem19);
 
         jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
@@ -361,13 +554,21 @@ public class MainInterface extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem14);
 
-        jMenuItem15.setText("Color");
-        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem16.setText("Border Color");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem15ActionPerformed(evt);
+                jMenuItem16ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem15);
+        jMenu4.add(jMenuItem16);
+
+        jMenuItem22.setText("Text Color");
+        jMenuItem22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem22ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem22);
 
         jMenuBar1.add(jMenu4);
 
@@ -394,9 +595,19 @@ public class MainInterface extends javax.swing.JFrame {
         jMenu6.setText("Help");
 
         jMenuItem17.setText("View Help");
+        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem17ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem17);
 
         jMenuItem18.setText("Version");
+        jMenuItem18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem18ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem18);
 
         jMenuBar1.add(jMenu6);
@@ -415,9 +626,9 @@ public class MainInterface extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
         String s=jTextPane1.getText();
             JFileChooser fc=new JFileChooser();    
@@ -436,30 +647,24 @@ public class MainInterface extends javax.swing.JFrame {
             } catch (IOException e) {
                 // do something
         }
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }                                          
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }                                          
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
         jTextPane1.cut();
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }                                          
 
-    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
-            
-    }//GEN-LAST:event_jMenuItem14ActionPerformed
+        jFrame1.setSize(450,300);
+        jFrame1.setVisible(true);
+    }                                           
 
-    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
-        // TODO add your handling code here:
-        Color color=JColorChooser.showDialog(this,"Select a color",Color.BLACK);    
-       jTextPane1.setBackground(color);
-       
-    }//GEN-LAST:event_jMenuItem15ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
         if(c==0){
             c=1;
@@ -492,9 +697,9 @@ public class MainInterface extends javax.swing.JFrame {
                 // do something
         }
         }
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }                                          
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
         JFileChooser fc=new JFileChooser();
         int i=fc.showOpenDialog(this);
@@ -511,9 +716,9 @@ public class MainInterface extends javax.swing.JFrame {
             jTextPane1.setText(s);
             }catch(Exception e){}
         }
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }                                          
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
 
          int dialogButton = JOptionPane.YES_NO_OPTION;
          int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to Save your Previous Note First?","Warning",dialogButton);
@@ -553,9 +758,9 @@ public class MainInterface extends javax.swing.JFrame {
           else{
               jTextPane1.setText("");
           }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }                                          
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
                     if(c==0){
         int dialogButton = JOptionPane.YES_NO_OPTION;
@@ -594,38 +799,42 @@ public class MainInterface extends javax.swing.JFrame {
         }
            }
         System.exit(1);
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }                                          
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
         jTextPane1.copy();
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    }                                          
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
         jTextPane1.paste();
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
+    }                                           
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+        try {
+            if (undoManager.canUndo()) {
+                undoManager.undo();
+            }
+        } catch (CannotUndoException exp) {}
+    }                                          
 
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
         int s=jTextPane1.getSelectionStart();
         int e=jTextPane1.getSelectionEnd();
         String text=jTextPane1.getText();
         jTextPane1.setText(text.substring(0,s)+text.substring(e+1,text.length()));
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
+    }                                           
 
-    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {                                            
 
         jDialog1.setSize(300,150);
         jDialog1.setVisible(true);
-    }//GEN-LAST:event_jMenuItem12ActionPerformed
+    }                                           
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         String f=jTextField1.getText();
         jTextPane1.requestFocusInWindow();
@@ -654,15 +863,15 @@ public class MainInterface extends javax.swing.JFrame {
                 }
             }catch(Exception ex){}
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }                                        
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         jTextField1.setText("");
         jDialog1.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }                                        
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         String f=jTextField2.getText();
         String r=jTextField3.getText();
@@ -681,22 +890,22 @@ public class MainInterface extends javax.swing.JFrame {
         jDialog2.setVisible(false);
         jTextField2.setText("");
         jTextField3.setText("");
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }                                        
 
-    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
         jDialog2.setSize(300,150);
         jDialog2.setVisible(true);
-    }//GEN-LAST:event_jMenuItem13ActionPerformed
+    }                                           
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         jDialog2.setVisible(false);
         jTextField2.setText("");
         jTextField3.setText("");
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }                                        
 
-    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
+    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
         if(Check.isBinary(jTextPane1.getText())==0){
             JOptionPane.showMessageDialog(this, "Already encoded", "Error", JOptionPane.ERROR_MESSAGE);
@@ -713,9 +922,9 @@ public class MainInterface extends javax.swing.JFrame {
                 jTextPane1.setText(n);
             }
         }
-    }//GEN-LAST:event_jMenuItem20ActionPerformed
+    }                                           
 
-    private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
+    private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
         if(Check.isBinary(jTextPane1.getText())==1){
             JOptionPane.showMessageDialog(this, "Already decoded", "Error", JOptionPane.ERROR_MESSAGE);
@@ -734,19 +943,134 @@ public class MainInterface extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Wrong password", "Error", JOptionPane.ERROR_MESSAGE);
         }
         }
-    }//GEN-LAST:event_jMenuItem21ActionPerformed
+    }                                           
+
+    private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+        jDialog3.setSize(350,200);
+        jDialog3.setVisible(true);
+    }                                           
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        jDialog3.setVisible(false);
+    }                                        
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        jFrame1.setVisible(false);
+    }                                        
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+
+        int a=Integer.parseInt((String)jComboBox2.getSelectedItem());
+        String special=(String)jComboBox1.getSelectedItem();
+        Font f;
+        if(special=="Bold")
+            f=new Font((String)jComboBox3.getSelectedItem(),Font.BOLD,a);
+        else if(special=="Italic")
+            f=new Font((String)jComboBox3.getSelectedItem(),Font.ITALIC,a);
+        else if(special=="Regular")
+            f=new Font((String)jComboBox3.getSelectedItem(),Font.PLAIN,a);
+        else
+            f=new Font((String)jComboBox3.getSelectedItem(),Font.BOLD+Font.ITALIC,a);
+        jLabel9.setFont(f);
+        jTextPane1.setFont(f);
+        jLabel9.setText("Demo");
+    }                                          
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
+        int a=Integer.parseInt((String)jComboBox2.getSelectedItem());
+        String special=(String)jComboBox1.getSelectedItem();
+        Font f;
+        if(special=="Bold")
+            f=new Font((String)jComboBox3.getSelectedItem(),Font.BOLD,a);
+        else if(special=="Italic")
+            f=new Font((String)jComboBox3.getSelectedItem(),Font.ITALIC,a);
+        else if(special=="Regular")
+            f=new Font((String)jComboBox3.getSelectedItem(),Font.PLAIN,a);
+        else
+            f=new Font((String)jComboBox3.getSelectedItem(),Font.BOLD+Font.ITALIC,a);
+        jLabel9.setFont(f);
+        jTextPane1.setFont(f);
+        jLabel9.setText("Demo");
+    }                                          
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
+        int a=Integer.parseInt((String)jComboBox2.getSelectedItem());
+        String special=(String)jComboBox1.getSelectedItem();
+        Font f;
+        if(special=="Bold")
+            f=new Font((String)jComboBox3.getSelectedItem(),Font.BOLD,a);
+        else if(special=="Italic")
+            f=new Font((String)jComboBox3.getSelectedItem(),Font.ITALIC,a);
+        else if(special=="Regular")
+            f=new Font((String)jComboBox3.getSelectedItem(),Font.PLAIN,a);
+        else
+            f=new Font((String)jComboBox3.getSelectedItem(),Font.BOLD+Font.ITALIC,a);
+        jLabel9.setFont(f);
+        jTextPane1.setFont(f);
+        jLabel9.setText("Demo");
+    }                                          
+
+    private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+        try {
+            if (undoManager.canRedo()) {
+                undoManager.redo();
+            }
+        } catch (CannotUndoException exp) {}
+    }                                           
+
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+        Color color=JColorChooser.showDialog(this,"Select a color",Color.BLACK);    
+       getContentPane().setBackground(color);
+    }                                           
+
+    private void jMenuItem22ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+        Color color=JColorChooser.showDialog(this,"Select a color",Color.BLACK);    
+        jTextPane1.setForeground(color);
+    }                                           
+
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+        jFrame2.setSize(412,358);
+        jFrame2.setVisible(true);
+    }                                           
 
     
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
+    private javax.swing.JDialog jDialog3;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -760,13 +1084,14 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem18;
     private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem20;
     private javax.swing.JMenuItem jMenuItem21;
+    private javax.swing.JMenuItem jMenuItem22;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
@@ -775,9 +1100,11 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextPane jTextPane1;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }
